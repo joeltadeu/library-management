@@ -1,11 +1,12 @@
-# LIBRARY MANAGEMENT USING SPRING CLOUD, EUREKA, ZUUL, ZIPKIN, SLEUTH
+# Library Management using Spring Cloud, Eureka, Zuul, Zipkin, Sleuth
 
-This project is created to get experience on **Microservices With Netflix OSS**. This is a simple project by coded imperative programming with simple business requirements.
 
-## There are two microservices:
+
+## There are three microservices:
 
 - **Books** : This microservice is responsible for managing books. A user can create, update, get details, list and delete books.
 - **Orders** : This microservice is responsible for managing orders. A member can borrow a book and return it.
+- **Params** : This microservice is responsible for managing params. These params are used to loan a book
 
 ### Business rules ###
 - No need to authenticate the user (we can assume they are members and are already authenticated)
@@ -25,6 +26,7 @@ This project is created to get experience on **Microservices With Netflix OSS**.
 | Books         | /api/v1/books/{id}           | 7500    | DELETE | Delete a specific book                           |
 | Orders        | /api/v1/loan                 | 7501    | POST   | Return detail of order                           |
 | Orders        | /api/v1/orders               | 7501    | POST   | Return details of orders                         |
+| Params        | /api/v1/params/by-key/{key}  | 7502    | GET    | Return param by key                              |
 
 ### Gateways ###
 
@@ -34,12 +36,15 @@ This project is created to get experience on **Microservices With Netflix OSS**.
 | Books         | **/book**/api/v1/books                    |
 | Orders        | **/order**/api/v1/loan                    |
 | Orders        | **/order**/api/v1/return                  |
+| Params        | **/param**/api/v1/params/by-key/{key}     |
 
 URI for gateway : *http://localhost:8762*
 
 ### Swagger ###
+
 - **Books** : http://localhost:8762/book/swagger-ui/index.html
 - **Orders** : http://localhost:8762/order/swagger-ui/index.html
+- **Params** : http://localhost:8762/param/swagger-ui/index.html
 
 ## Used Netflix OSS:
 
@@ -71,6 +76,7 @@ In docker-compose.yml file:
 
 - Books Service : **__7500__** port is mapped to **__7500__** port of host
 - Orders Service : **__7501__** port is mapped to **__7501__** port of host
+- Params Service : **__7502__** port is mapped to **__7502__** port of host
 - Eureka Discovery Service : **__8761__** port is mapped to **__8761__** port of host
 - Spring Boot (/ Zuul) Gateway Service : **__8762__** port is mapped to **__8762__** port of host 
 
