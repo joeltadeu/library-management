@@ -1,0 +1,10 @@
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    serviceUrl:
+      defaultZone: ${DISCOVERY_URL:http://localhost:8761}/eureka/
+
+params-url:
+  ribbon:
+    listOfServers: http://localhost:7502

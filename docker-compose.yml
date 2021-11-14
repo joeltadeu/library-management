@@ -1,0 +1,153 @@
+version: '3.7'
+services:
+
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.8.0
+    container_name: service-elasticsearch
+    ports:
+      - "9200:9200"
+      - "9300:9300"
+    restart: unless-stopped
+    environment:
+      - discovery.type=single-node
+      - node.name=elasticsearch
+      - cluster.name=es-docker-cluster
+      - bootstrap.memory_lock=true
+      - xpack.security.enabled=false
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+      nofile:
+        soft: 65536
+        hard: 65536
+#    mem_limit: 500m
+#    cap_add:
+#      - IPC_LOCK
+    volumes:
+      - ./elasticsearch/data:/usr/share/elasticsearch/data:rw
+
+  kibana:
+    image: docker.elastic.co/kibana/kibana:7.8.0
+    container_name: service-kibana
+    ports:
+      - 5601:5601
+    environment:
+      ELASTICSEARCH_URL: http://elasticsearch:9200
+      ELASTICSEARCH_HOSTS: http://elasticsearch:9200
+    depends_on:
+      - elasticsearch
+
+  zipkin:
+    image: openzipkin/zipkin
+    container_name: service-zipkin
+    ports:
+      - 9411:9411
+
+  logstash:
+    image: docker.elastic.co/logstash/logstash:7.8.0
+    container_name: service-logstash
+    restart: unless-stopped
+    command: logstash -f /usr/share/logstash/pipeline
+    volumes:
+      - ./logstash/config:/usr/share/logstash/config:ro
+      - ./logstash/pipeline:/usr/share/logstash/pipeline:ro
+    ports:
+      - "5000:5000"
+      - "12204:12204"
+    depends_on:
+      - elasticsearch
+
+  discovery:
+    image: lmgm/discovery-service
+    container_name: discovery-service
+    build:
+      context: ./discovery-service
+      dockerfile: Dockerfile
+    ports:
+      - "8761:8761"
+    depends_on:
+      - logstash
+    links:
+      - logstash
+
+  gateway:
+    image: lmgm/api-gateway-service
+    container_name: api-gateway-service
+    build:
+      context: ./api-gateway-service
+      dockerfile: Dockerfile
+    ports:
+      - "8762:8762"
+    links:
+      - discovery
+      - logstash
+      - zipkin
+
+  books:
+    image: lmgm/books-service-api
+    container_name: books-service
+    build:
+      context: ./books-service
+      dockerfile: Dockerfile
+    ports:
+      - "7500:7500"
+    links:
+      - discovery
+      - logstash
+      - zipkin
+
+  orders:
+    image: lmgm/orders-service-api
+    container_name: orders-service
+    build:
+      context: ./orders-service
+      dockerfile: Dockerfile
+    ports:
+      - "7501:7501"
+    depends_on:
+      - discovery
+      - books
+    links:
+      - discovery
+      - logstash
+      - zipkin
+
+  params:
+    image: lmgm/params-service-api
+    container_name: params-service
+    build:
+      context: ./params-service
+      dockerfile: Dockerfile
+    ports:
+    - "7502:7502"
+    depends_on:
+      - discovery
+    links:
+      - discovery
+      - logstash
+      - zipkin
+
+  prometheus:
+    image: prom/prometheus:latest
+    container_name: prometheus
+    ports:
+      - 9090:9090
+    command:
+      - --config.file=/etc/prometheus/prometheus.yml
+    volumes:
+      - ./prometheus/config/prometheus.yml:/etc/prometheus/prometheus.yml:ro
+    links:
+      - discovery
+      - gateway
+      - books
+      - orders
+      - params
+
+  grafana:
+    image: grafana/grafana
+    container_name: grafana
+    ports:
+      - 3000:3000
+    user: "104"
