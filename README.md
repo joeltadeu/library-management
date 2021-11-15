@@ -49,6 +49,7 @@ URI for gateway : *http://localhost:8762*
 - **Params** : http://localhost:8762/param/swagger-ui.html
 
 ###Postman collection
+
 ![Alt text](assets/postman-collection-folder.png?raw=true "Postman collection folder")
 ## Used Netflix OSS:
 
