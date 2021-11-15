@@ -1,16 +1,21 @@
+lmgn:
+  params:
+    limit: borrow-limit
+    days: borrow-days
+
 server:
-  port: ${PORT:7500}
+  port: ${PORT:7501}
   servlet:
-    context-path: /book
+    context-path: /order
 
 spring:
   application:
-    name: books-service
+    name: orders-service
   datasource:
-    url: jdbc:h2:mem:book
+    url: jdbc:h2:mem:order
     driver-class-name: org.h2.Driver
-    username: book
-    password: book
+    username: order
+    password: order
   jpa:
     database-platform: org.hibernate.dialect.H2Dialect
     hibernate:
@@ -25,8 +30,6 @@ spring:
   logstash:
     server: logstash
     port: 5000
-  zipkin:
-    base-url: ${ZIPKIN_URL:http://zipkin:9411}/    
 
 management:
   endpoints:
@@ -49,4 +52,6 @@ eureka:
 
 springdoc:
   swagger-ui:
-    disable-swagger-default-url: true
+    disable-swagger-default-url: off
+
+params-url: params-service

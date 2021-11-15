@@ -3,12 +3,12 @@ package com.orderservice.business.service;
 import com.orderservice.business.persistence.entity.BookOrderEntity;
 import com.orderservice.business.persistence.repository.BookOrderRepository;
 import com.orderservice.business.service.client.ParamServiceClient;
+import com.orderservice.business.service.properties.BookOrderProperties;
 import com.orderservice.business.web.dto.OperationDTO;
 import com.orderservice.business.web.dto.ParamDTO;
 import com.orderservice.commons.exception.DataNotFoundException;
 import com.orderservice.commons.validation.RestPreConditions;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
@@ -17,29 +17,25 @@ import java.time.LocalDateTime;
 @Service
 public class BookOrderService {
 
-    @Value("${lmgn.params.limit}")
-    private String borrowLimitKey;
-
-    @Value("${lmgn.params.days}")
-    private String borrowDaysKey;
-
     private final BookOrderRepository repository;
     private final ParamServiceClient paramClient;
+    private final BookOrderProperties properties;
 
     public BookOrderService(
-        BookOrderRepository repository, ParamServiceClient paramClient) {
+        BookOrderRepository repository, ParamServiceClient paramClient, BookOrderProperties properties) {
         this.repository = repository;
         this.paramClient = paramClient;
+        this.properties = properties;
     }
 
     public BookOrderEntity loaned(OperationDTO operation) {
 
         log.info("Get param borrow-limit from params-service...");
-        ParamDTO borrowLimitParam = paramClient.findByKey(borrowLimitKey);
+        ParamDTO borrowLimitParam = paramClient.findByKey(properties.getBorrowLimitKey());
         log.info("borrow-limit: {}", borrowLimitParam);
 
         log.info("Get param borrow-days from params-service...");
-        ParamDTO borrowDaysParam = paramClient.findByKey(borrowDaysKey);
+        ParamDTO borrowDaysParam = paramClient.findByKey(properties.getBorrowDaysKey());
         log.info("borrow-days: {}", borrowDaysParam);
 
         log.info("Before loan, checking if the book is available to be loaned");

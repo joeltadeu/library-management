@@ -1,4 +1,4 @@
-package com.orderservice.infrastructure.config;
+package com.bookservice.infrastructure.config;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Configuration;
