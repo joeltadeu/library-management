@@ -7,8 +7,8 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 @Component
-@NoArgsConstructor
 @AllArgsConstructor
+@NoArgsConstructor
 @Data
 public class BookOrderProperties {
     @Value("${lmgn.params.limit}")

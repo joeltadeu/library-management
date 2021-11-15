@@ -1,4 +1,4 @@
-package com.orderservice.business.web.controller.utils;
+package com.paramservice.business.web.controller.utils;
 
 import java.util.Random;
 

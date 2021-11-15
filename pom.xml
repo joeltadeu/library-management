@@ -21,8 +21,8 @@
     <properties>
         <java.version>16</java.version>
         <spring-cloud.version>2020.0.4</spring-cloud.version>
-        <springdoc-openapi-ui.version>1.5.2</springdoc-openapi-ui.version>
-        <springdoc-openapi-data-rest.version>1.5.2</springdoc-openapi-data-rest.version>
+        <springdoc-openapi-ui.version>1.5.12</springdoc-openapi-ui.version>
+        <springdoc-openapi-data-rest.version>1.5.12</springdoc-openapi-data-rest.version>
         <modelmapper.version>2.4.4</modelmapper.version>
 		<logstash-logback-encoder.version>6.6</logstash-logback-encoder.version>
 		<jersey-apache-client4.version>1.19.4</jersey-apache-client4.version>

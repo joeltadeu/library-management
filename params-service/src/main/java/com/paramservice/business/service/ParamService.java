@@ -3,7 +3,6 @@ package com.paramservice.business.service;
 import com.paramservice.business.persistence.entity.ParamEntity;
 import com.paramservice.business.persistence.repository.ParamRepository;
 import com.paramservice.commons.validation.RestPreConditions;
-import lombok.extern.log4j.Log4j2;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 

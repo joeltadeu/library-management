@@ -10,6 +10,7 @@ import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,6 +21,7 @@ import org.springframework.web.bind.annotation.RestController;
 @Slf4j
 @RestController
 @RequestMapping(value = "/api/v1/params")
+@Tag(name = "Param Api", description = "This service is responsible for managing params. These params are used to loan a book")
 public class ParamController {
 
     private final ParamService service;
@@ -31,7 +33,7 @@ public class ParamController {
     }
 
     @GetMapping(value = "/by-key/{key}", produces = "application/json")
-    @Operation(summary = "Get a param by key")
+    @Operation(summary = "Get param by key", description="Get a param from database by key")
     @ApiResponses(value = {
         @ApiResponse(responseCode = "200", description = "Found the param",
                      content = { @Content(mediaType = "application/json",

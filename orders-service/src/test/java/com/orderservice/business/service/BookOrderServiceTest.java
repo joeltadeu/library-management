@@ -187,7 +187,7 @@ public class BookOrderServiceTest {
     }
 
     @Test
-    public void returnBook_shouldNotCreate_LoanNotFound() {
+    public void returnBook_shouldNotReturn_LoanNotFound() {
 
         final var bookId = getRandomLong();
         final var userId = getRandomLong();

@@ -1,10 +1,15 @@
+params-url:
+  ribbon:
+    listOfServers: http://localhost:7502
+
+ribbon:
+  eureka:
+  enabled: false
+
 eureka:
   instance:
     prefer-ip-address: true
   client:
+    fetch-registry: true
     serviceUrl:
       defaultZone: ${DISCOVERY_URL:http://localhost:8761}/eureka/
-
-params-url:
-  ribbon:
-    listOfServers: http://localhost:7502

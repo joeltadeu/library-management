@@ -24,8 +24,8 @@
 | Books         | /api/v1/books                | 7500    | POST   | Insert a new book                                |
 | Books         | /api/v1/books/{id}           | 7500    | PUT    | Update a specific book                           |
 | Books         | /api/v1/books/{id}           | 7500    | DELETE | Delete a specific book                           |
-| Orders        | /api/v1/loan                 | 7501    | POST   | Return detail of order                           |
-| Orders        | /api/v1/orders               | 7501    | POST   | Return details of orders                         |
+| Orders        | /api/v1/loan                 | 7501    | POST   | Loan a book                                      |
+| Orders        | /api/v1/return               | 7501    | POST   | Return a book                                    |
 | Params        | /api/v1/params/by-key/{key}  | 7502    | GET    | Return param by key                              |
 
 ### Gateways ###
@@ -40,12 +40,16 @@
 
 URI for gateway : *http://localhost:8762*
 
-### Swagger ###
+### Documentation and examples ###
 
-- **Books** : http://localhost:8762/book/swagger-ui/index.html
-- **Orders** : http://localhost:8762/order/swagger-ui/index.html
-- **Params** : http://localhost:8762/param/swagger-ui/index.html
+###Swagger
 
+- **Books** : http://localhost:8762/book/swagger-ui.html
+- **Orders** : http://localhost:8762/order/swagger-ui.html
+- **Params** : http://localhost:8762/param/swagger-ui.html
+
+###Postman collection
+![Alt text](assets/postman-collection-folder.png?raw=true "Postman collection folder")
 ## Used Netflix OSS:
 
 - **Netflix Eureka** is used for discovery service.
@@ -64,6 +68,12 @@ You can open Zipkin : http://localhost:9411
 - **Kibana** is on 5601 port
 
 Open kibana with http://localhost:5601/. You must define an index pattern (taner-*) on Management/Stack Management.
+
+## Grafana:
+
+You can open Grafana : http://localhost:3000/
+
+username/password: admin
 
 ## Build & Run
 

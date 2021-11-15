@@ -1,0 +1,2109 @@
+{
+	"info": {
+		"_postman_id": "6521d312-75c3-42da-824d-d83e3e9fec1a",
+		"name": "library-management",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "using-gateway",
+			"item": [
+				{
+					"name": "book-service",
+					"item": [
+						{
+							"name": "get_book_by_id",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url-gateway}}/book/api/v1/books/15",
+									"host": [
+										"{{url-gateway}}"
+									],
+									"path": [
+										"book",
+										"api",
+										"v1",
+										"books",
+										"15"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "200_OK",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:8080/v1/books/15",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"v1",
+												"books",
+												"15"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 11 Nov 2021 20:24:32 GMT"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=60"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"id\": 15,\n    \"title\": \"Da Vinci Code\",\n    \"isbn\": \"978-14-09091-15-8\",\n    \"author\": {\n        \"id\": 13,\n        \"name\": \"Dan Brown\"\n    },\n    \"categories\": [\n        {\n            \"id\": 15,\n            \"name\": \"Detective fiction\"\n        },\n        {\n            \"id\": 14,\n            \"name\": \"Mystery\"\n        }\n    ]\n}"
+								},
+								{
+									"name": "404_Not_Found",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:8080/v1/books/151",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"v1",
+												"books",
+												"151"
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 11 Nov 2021 20:25:36 GMT"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=60"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"code\": 404,\n    \"status\": \"Not Found\",\n    \"description\": \"Book with Id 151 was not found\",\n    \"date\": \"2021-11-11T17:25:36.724036\"\n}"
+								}
+							]
+						},
+						{
+							"name": "get_books",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url-gateway}}/book/api/v1/books",
+									"host": [
+										"{{url-gateway}}"
+									],
+									"path": [
+										"book",
+										"api",
+										"v1",
+										"books"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "200_OK",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:8080/v1/books",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"v1",
+												"books"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 11 Nov 2021 20:26:13 GMT"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=60"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"content\": [\n        {\n            \"id\": 9,\n            \"title\": \"A Beautiful Mind\",\n            \"isbn\": \"978-65-86110-12-14\",\n            \"author\": {\n                \"id\": 9,\n                \"name\": \"Sylvia Nasar\"\n            },\n            \"categories\": [\n                {\n                    \"id\": 13,\n                    \"name\": \"Biography\"\n                }\n            ]\n        },\n        {\n            \"id\": 8,\n            \"title\": \"A Long Petal of the Sea\",\n            \"isbn\": \"978-65-86110-93-13\",\n            \"author\": {\n                \"id\": 8,\n                \"name\": \"Isabel Allende\"\n            },\n            \"categories\": [\n                {\n                    \"id\": 6,\n                    \"name\": \"Romance\"\n                }\n            ]\n        },\n        {\n            \"id\": 10,\n            \"title\": \"Alan Turing: The Enigma\",\n            \"isbn\": \"978-65-86110-08-15\",\n            \"author\": {\n                \"id\": 10,\n                \"name\": \"Andrew Hodges\"\n            },\n            \"categories\": [\n                {\n                    \"id\": 13,\n                    \"name\": \"Biography\"\n                }\n            ]\n        },\n        {\n            \"id\": 15,\n            \"title\": \"Da Vinci Code\",\n            \"isbn\": \"978-14-09091-15-8\",\n            \"author\": {\n                \"id\": 13,\n                \"name\": \"Dan Brown\"\n            },\n            \"categories\": [\n                {\n                    \"id\": 15,\n                    \"name\": \"Detective fiction\"\n                },\n                {\n                    \"id\": 14,\n                    \"name\": \"Mystery\"\n                }\n            ]\n        },\n        {\n            \"id\": 13,\n            \"title\": \"Hamlet\",\n            \"isbn\": \"978-65-86110-35-18\",\n            \"author\": {\n                \"id\": 12,\n                \"name\": \"William Shakespeare\"\n            },\n            \"categories\": [\n                {\n                    \"id\": 12,\n                    \"name\": \"Drama\"\n                },\n                {\n                    \"id\": 4,\n                    \"name\": \"Classic\"\n                }\n            ]\n        },\n        {\n            \"id\": 4,\n            \"title\": \"Harry Potter and Half Blood Prince\",\n            \"isbn\": \"978-65-86110-30-9\",\n            \"author\": {\n                \"id\": 4,\n                \"name\": \"J.K. Rowling\"\n            },\n            \"categories\": [\n                {\n                    \"id\": 9,\n                    \"name\": \"Fantasy\"\n                }\n            ]\n        },\n        {\n            \"id\": 6,\n            \"title\": \"It Ends With Us\",\n            \"isbn\": \"978-65-86110-79-11\",\n            \"author\": {\n                \"id\": 6,\n                \"name\": \"Colleen Hoover\"\n            },\n            \"categories\": [\n                {\n                    \"id\": 6,\n                    \"name\": \"Romance\"\n                }\n            ]\n        },\n        {\n            \"id\": 14,\n            \"title\": \"Macbeth\",\n            \"isbn\": \"978-65-86110-81-19\",\n            \"author\": {\n                \"id\": 12,\n                \"name\": \"William Shakespeare\"\n            },\n            \"categories\": [\n                {\n                    \"id\": 12,\n                    \"name\": \"Drama\"\n                },\n                {\n                    \"id\": 4,\n                    \"name\": \"Classic\"\n                }\n            ]\n        },\n        {\n            \"id\": 3,\n            \"title\": \"Moby-Dick\",\n            \"isbn\": \"978-65-86110-21-8\",\n            \"author\": {\n                \"id\": 3,\n                \"name\": \"Herman Melville\"\n            },\n            \"categories\": [\n                {\n                    \"id\": 4,\n                    \"name\": \"Classic\"\n                }\n            ]\n        },\n        {\n            \"id\": 2,\n            \"title\": \"One Hundred Years of Solitude\",\n            \"isbn\": \"978-65-86110-45-6\",\n            \"author\": {\n                \"id\": 2,\n                \"name\": \"Gabriel García Márquez\"\n            },\n            \"categories\": [\n                {\n                    \"id\": 4,\n                    \"name\": \"Classic\"\n                }\n            ]\n        }\n    ],\n    \"pageable\": {\n        \"sort\": {\n            \"empty\": false,\n            \"sorted\": true,\n            \"unsorted\": false\n        },\n        \"offset\": 0,\n        \"pageSize\": 10,\n        \"pageNumber\": 0,\n        \"paged\": true,\n        \"unpaged\": false\n    },\n    \"last\": false,\n    \"totalElements\": 15,\n    \"totalPages\": 2,\n    \"size\": 10,\n    \"number\": 0,\n    \"sort\": {\n        \"empty\": false,\n        \"sorted\": true,\n        \"unsorted\": false\n    },\n    \"first\": true,\n    \"numberOfElements\": 10,\n    \"empty\": false\n}"
+								}
+							]
+						},
+						{
+							"name": "get_books_with_filters",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url-gateway}}/book/api/v1/books?categories=Romance&author=Jasmine",
+									"host": [
+										"{{url-gateway}}"
+									],
+									"path": [
+										"book",
+										"api",
+										"v1",
+										"books"
+									],
+									"query": [
+										{
+											"key": "categories",
+											"value": "Romance"
+										},
+										{
+											"key": "author",
+											"value": "Jasmine"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "200_OK",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:8080/v1/books?categories=Romance&author=Jasmine",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"v1",
+												"books"
+											],
+											"query": [
+												{
+													"key": "categories",
+													"value": "Romance"
+												},
+												{
+													"key": "author",
+													"value": "Jasmine"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 11 Nov 2021 20:32:29 GMT"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=60"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"content\": [\n        {\n            \"id\": 7,\n            \"title\": \"The Proposal\",\n            \"isbn\": \"978-65-86110-82-12\",\n            \"author\": {\n                \"id\": 7,\n                \"name\": \"Jasmine Guillory\"\n            },\n            \"categories\": [\n                {\n                    \"id\": 6,\n                    \"name\": \"Romance\"\n                }\n            ]\n        }\n    ],\n    \"pageable\": {\n        \"sort\": {\n            \"empty\": false,\n            \"sorted\": true,\n            \"unsorted\": false\n        },\n        \"offset\": 0,\n        \"pageSize\": 10,\n        \"pageNumber\": 0,\n        \"paged\": true,\n        \"unpaged\": false\n    },\n    \"last\": true,\n    \"totalElements\": 1,\n    \"totalPages\": 1,\n    \"size\": 10,\n    \"number\": 0,\n    \"sort\": {\n        \"empty\": false,\n        \"sorted\": true,\n        \"unsorted\": false\n    },\n    \"first\": true,\n    \"numberOfElements\": 1,\n    \"empty\": false\n}"
+								}
+							]
+						},
+						{
+							"name": "insert_book",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"title\":\"Da Vinci Code\",\r\n    \"isbn\":\"978-14-09091-15-8\",\r\n    \"authorId\":13,\r\n    \"categories\": [14, 15]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url-gateway}}/book/api/v1/books",
+									"host": [
+										"{{url-gateway}}"
+									],
+									"path": [
+										"book",
+										"api",
+										"v1",
+										"books"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "201_Created",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"title\":\"Da Vinci Code\",\r\n    \"isbn\":\"978-14-09091-15-8\",\r\n    \"authorId\":13,\r\n    \"categories\": [14, 15]\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:8080/v1/books",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"v1",
+												"books"
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 11 Nov 2021 19:59:56 GMT"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=60"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"id\": 15,\n    \"title\": \"Da Vinci Code\",\n    \"isbn\": \"978-14-09091-15-8\",\n    \"author\": {\n        \"id\": 13,\n        \"name\": null\n    },\n    \"categories\": [\n        {\n            \"id\": 15,\n            \"name\": null\n        },\n        {\n            \"id\": 14,\n            \"name\": null\n        }\n    ]\n}"
+								},
+								{
+									"name": "400_Bad_Request_duplicated_Isbn",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"title\":\"Da Vinci Code\",\r\n    \"isbn\":\"978-14-09091-15-8\",\r\n    \"authorId\":13,\r\n    \"categories\": [14, 15]\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:8080/v1/books",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"v1",
+												"books"
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 11 Nov 2021 20:37:21 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "close"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"code\": 400,\n    \"status\": \"Bad Request\",\n    \"description\": \"There is another book using the same isbn '978-14-09091-15-8' informed \",\n    \"date\": \"2021-11-11T17:37:21.321112\"\n}"
+								}
+							]
+						},
+						{
+							"name": "update_book",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"title\":\"Da Vinci Code\",\r\n    \"isbn\":\"978-14-09091-15-8\",\r\n    \"authorId\":13,\r\n    \"categories\": [14,15,16,17]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url-gateway}}/book/api/v1/books/15",
+									"host": [
+										"{{url-gateway}}"
+									],
+									"path": [
+										"book",
+										"api",
+										"v1",
+										"books",
+										"15"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete_book",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{url-gateway}}/book/api/v1/books/15",
+									"host": [
+										"{{url-gateway}}"
+									],
+									"path": [
+										"book",
+										"api",
+										"v1",
+										"books",
+										"15"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "order-service",
+					"item": [
+						{
+							"name": "user-outstanding-books",
+							"item": [
+								{
+									"name": "loan_a_book",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"bookId\":3,\r\n    \"userId\":1\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{url-gateway}}/order/api/v1/loan",
+											"host": [
+												"{{url-gateway}}"
+											],
+											"path": [
+												"order",
+												"api",
+												"v1",
+												"loan"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "return_a_book",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"bookId\":1, \r\n    \"userId\":1\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{url-gateway}}/order/api/v1/return",
+											"host": [
+												"{{url-gateway}}"
+											],
+											"path": [
+												"order",
+												"api",
+												"v1",
+												"return"
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "400_Not_Found",
+											"originalRequest": {
+												"method": "POST",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\r\n    \"userId\":14\r\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "http://localhost:9041/v1/books/15/return",
+													"protocol": "http",
+													"host": [
+														"localhost"
+													],
+													"port": "9041",
+													"path": [
+														"v1",
+														"books",
+														"15",
+														"return"
+													]
+												}
+											},
+											"status": "Not Found",
+											"code": 404,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												},
+												{
+													"key": "Transfer-Encoding",
+													"value": "chunked"
+												},
+												{
+													"key": "Date",
+													"value": "Fri, 12 Nov 2021 00:03:01 GMT"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=60"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												}
+											],
+											"cookie": [],
+											"body": "{\n    \"code\": 404,\n    \"status\": \"Not Found\",\n    \"description\": \"Borrow for this book not found\",\n    \"date\": \"2021-11-11T21:03:01.484914500\"\n}"
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "user-can-borrow-book",
+							"item": [
+								{
+									"name": "loan_a_book",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"bookId\":4,\r\n    \"userId\":6\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{url-gateway}}/order/api/v1/loan",
+											"host": [
+												"{{url-gateway}}"
+											],
+											"path": [
+												"order",
+												"api",
+												"v1",
+												"loan"
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "201_Created",
+											"originalRequest": {
+												"method": "POST",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\r\n    \"userId\":15\r\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "http://localhost:9041/v1/books/15/borrow",
+													"protocol": "http",
+													"host": [
+														"localhost"
+													],
+													"port": "9041",
+													"path": [
+														"v1",
+														"books",
+														"15",
+														"borrow"
+													]
+												}
+											},
+											"status": "Created",
+											"code": 201,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												},
+												{
+													"key": "Transfer-Encoding",
+													"value": "chunked"
+												},
+												{
+													"key": "Date",
+													"value": "Fri, 12 Nov 2021 00:00:09 GMT"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=60"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												}
+											],
+											"cookie": [],
+											"body": "{\n    \"id\": 1,\n    \"borrowedAt\": \"2021-11-11 21:00:09\",\n    \"returnIn\": \"2021-11-16 21:00:09\"\n}"
+										},
+										{
+											"name": "400_Bad_Request",
+											"originalRequest": {
+												"method": "POST",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\r\n    \"userId\":15\r\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "http://localhost:9041/v1/books/15/borrow",
+													"protocol": "http",
+													"host": [
+														"localhost"
+													],
+													"port": "9041",
+													"path": [
+														"v1",
+														"books",
+														"15",
+														"borrow"
+													]
+												}
+											},
+											"status": "Bad Request",
+											"code": 400,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												},
+												{
+													"key": "Transfer-Encoding",
+													"value": "chunked"
+												},
+												{
+													"key": "Date",
+													"value": "Fri, 12 Nov 2021 00:01:00 GMT"
+												},
+												{
+													"key": "Connection",
+													"value": "close"
+												}
+											],
+											"cookie": [],
+											"body": "{\n    \"code\": 400,\n    \"status\": \"Bad Request\",\n    \"description\": \"Book is not available to borrow\",\n    \"date\": \"2021-11-11T21:01:00.189602400\"\n}"
+										}
+									]
+								},
+								{
+									"name": "return_a_book",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"bookId\":6, \r\n    \"userId\":6\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{url-gateway}}/order/api/v1/return",
+											"host": [
+												"{{url-gateway}}"
+											],
+											"path": [
+												"order",
+												"api",
+												"v1",
+												"return"
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "400_Not_Found",
+											"originalRequest": {
+												"method": "POST",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\r\n    \"userId\":14\r\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "http://localhost:9041/v1/books/15/return",
+													"protocol": "http",
+													"host": [
+														"localhost"
+													],
+													"port": "9041",
+													"path": [
+														"v1",
+														"books",
+														"15",
+														"return"
+													]
+												}
+											},
+											"status": "Not Found",
+											"code": 404,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												},
+												{
+													"key": "Transfer-Encoding",
+													"value": "chunked"
+												},
+												{
+													"key": "Date",
+													"value": "Fri, 12 Nov 2021 00:03:01 GMT"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=60"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												}
+											],
+											"cookie": [],
+											"body": "{\n    \"code\": 404,\n    \"status\": \"Not Found\",\n    \"description\": \"Borrow for this book not found\",\n    \"date\": \"2021-11-11T21:03:01.484914500\"\n}"
+										}
+									]
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "param-service",
+					"item": [
+						{
+							"name": "get_param_Borrow_Limit",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url-gateway}}/param/api/v1/params/by-key/borrow-limit",
+									"host": [
+										"{{url-gateway}}"
+									],
+									"path": [
+										"param",
+										"api",
+										"v1",
+										"params",
+										"by-key",
+										"borrow-limit"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "200_OK",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{url-param-service}}/param/api/v1/params/by-key/borrow-limit",
+											"host": [
+												"{{url-param-service}}"
+											],
+											"path": [
+												"param",
+												"api",
+												"v1",
+												"params",
+												"by-key",
+												"borrow-limit"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Date",
+											"value": "Sat, 13 Nov 2021 23:36:49 GMT"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=60"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"key\": \"borrow-limit\",\n    \"value\": 3\n}"
+								}
+							]
+						},
+						{
+							"name": "get_param_Borrow_Days",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url-gateway}}/param/api/v1/params/by-key/borrow-days",
+									"host": [
+										"{{url-gateway}}"
+									],
+									"path": [
+										"param",
+										"api",
+										"v1",
+										"params",
+										"by-key",
+										"borrow-days"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "200_OK",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{url-param-service}}/param/api/v1/params/by-key/borrow-days",
+											"host": [
+												"{{url-param-service}}"
+											],
+											"path": [
+												"param",
+												"api",
+												"v1",
+												"params",
+												"by-key",
+												"borrow-days"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Date",
+											"value": "Sat, 13 Nov 2021 23:38:22 GMT"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=60"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"key\": \"borrow-days\",\n    \"value\": 5\n}"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "using-microservices",
+			"item": [
+				{
+					"name": "book-service",
+					"item": [
+						{
+							"name": "get_book_by_id",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url-book-service}}/book/api/v1/books/15",
+									"host": [
+										"{{url-book-service}}"
+									],
+									"path": [
+										"book",
+										"api",
+										"v1",
+										"books",
+										"15"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "200_OK",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:8080/v1/books/15",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"v1",
+												"books",
+												"15"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 11 Nov 2021 20:24:32 GMT"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=60"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"id\": 15,\n    \"title\": \"Da Vinci Code\",\n    \"isbn\": \"978-14-09091-15-8\",\n    \"author\": {\n        \"id\": 13,\n        \"name\": \"Dan Brown\"\n    },\n    \"categories\": [\n        {\n            \"id\": 15,\n            \"name\": \"Detective fiction\"\n        },\n        {\n            \"id\": 14,\n            \"name\": \"Mystery\"\n        }\n    ]\n}"
+								},
+								{
+									"name": "404_Not_Found",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:8080/v1/books/151",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"v1",
+												"books",
+												"151"
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 11 Nov 2021 20:25:36 GMT"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=60"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"code\": 404,\n    \"status\": \"Not Found\",\n    \"description\": \"Book with Id 151 was not found\",\n    \"date\": \"2021-11-11T17:25:36.724036\"\n}"
+								}
+							]
+						},
+						{
+							"name": "get_books",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url-book-service}}/book/api/v1/books",
+									"host": [
+										"{{url-book-service}}"
+									],
+									"path": [
+										"book",
+										"api",
+										"v1",
+										"books"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "200_OK",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:8080/v1/books",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"v1",
+												"books"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 11 Nov 2021 20:26:13 GMT"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=60"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"content\": [\n        {\n            \"id\": 9,\n            \"title\": \"A Beautiful Mind\",\n            \"isbn\": \"978-65-86110-12-14\",\n            \"author\": {\n                \"id\": 9,\n                \"name\": \"Sylvia Nasar\"\n            },\n            \"categories\": [\n                {\n                    \"id\": 13,\n                    \"name\": \"Biography\"\n                }\n            ]\n        },\n        {\n            \"id\": 8,\n            \"title\": \"A Long Petal of the Sea\",\n            \"isbn\": \"978-65-86110-93-13\",\n            \"author\": {\n                \"id\": 8,\n                \"name\": \"Isabel Allende\"\n            },\n            \"categories\": [\n                {\n                    \"id\": 6,\n                    \"name\": \"Romance\"\n                }\n            ]\n        },\n        {\n            \"id\": 10,\n            \"title\": \"Alan Turing: The Enigma\",\n            \"isbn\": \"978-65-86110-08-15\",\n            \"author\": {\n                \"id\": 10,\n                \"name\": \"Andrew Hodges\"\n            },\n            \"categories\": [\n                {\n                    \"id\": 13,\n                    \"name\": \"Biography\"\n                }\n            ]\n        },\n        {\n            \"id\": 15,\n            \"title\": \"Da Vinci Code\",\n            \"isbn\": \"978-14-09091-15-8\",\n            \"author\": {\n                \"id\": 13,\n                \"name\": \"Dan Brown\"\n            },\n            \"categories\": [\n                {\n                    \"id\": 15,\n                    \"name\": \"Detective fiction\"\n                },\n                {\n                    \"id\": 14,\n                    \"name\": \"Mystery\"\n                }\n            ]\n        },\n        {\n            \"id\": 13,\n            \"title\": \"Hamlet\",\n            \"isbn\": \"978-65-86110-35-18\",\n            \"author\": {\n                \"id\": 12,\n                \"name\": \"William Shakespeare\"\n            },\n            \"categories\": [\n                {\n                    \"id\": 12,\n                    \"name\": \"Drama\"\n                },\n                {\n                    \"id\": 4,\n                    \"name\": \"Classic\"\n                }\n            ]\n        },\n        {\n            \"id\": 4,\n            \"title\": \"Harry Potter and Half Blood Prince\",\n            \"isbn\": \"978-65-86110-30-9\",\n            \"author\": {\n                \"id\": 4,\n                \"name\": \"J.K. Rowling\"\n            },\n            \"categories\": [\n                {\n                    \"id\": 9,\n                    \"name\": \"Fantasy\"\n                }\n            ]\n        },\n        {\n            \"id\": 6,\n            \"title\": \"It Ends With Us\",\n            \"isbn\": \"978-65-86110-79-11\",\n            \"author\": {\n                \"id\": 6,\n                \"name\": \"Colleen Hoover\"\n            },\n            \"categories\": [\n                {\n                    \"id\": 6,\n                    \"name\": \"Romance\"\n                }\n            ]\n        },\n        {\n            \"id\": 14,\n            \"title\": \"Macbeth\",\n            \"isbn\": \"978-65-86110-81-19\",\n            \"author\": {\n                \"id\": 12,\n                \"name\": \"William Shakespeare\"\n            },\n            \"categories\": [\n                {\n                    \"id\": 12,\n                    \"name\": \"Drama\"\n                },\n                {\n                    \"id\": 4,\n                    \"name\": \"Classic\"\n                }\n            ]\n        },\n        {\n            \"id\": 3,\n            \"title\": \"Moby-Dick\",\n            \"isbn\": \"978-65-86110-21-8\",\n            \"author\": {\n                \"id\": 3,\n                \"name\": \"Herman Melville\"\n            },\n            \"categories\": [\n                {\n                    \"id\": 4,\n                    \"name\": \"Classic\"\n                }\n            ]\n        },\n        {\n            \"id\": 2,\n            \"title\": \"One Hundred Years of Solitude\",\n            \"isbn\": \"978-65-86110-45-6\",\n            \"author\": {\n                \"id\": 2,\n                \"name\": \"Gabriel García Márquez\"\n            },\n            \"categories\": [\n                {\n                    \"id\": 4,\n                    \"name\": \"Classic\"\n                }\n            ]\n        }\n    ],\n    \"pageable\": {\n        \"sort\": {\n            \"empty\": false,\n            \"sorted\": true,\n            \"unsorted\": false\n        },\n        \"offset\": 0,\n        \"pageSize\": 10,\n        \"pageNumber\": 0,\n        \"paged\": true,\n        \"unpaged\": false\n    },\n    \"last\": false,\n    \"totalElements\": 15,\n    \"totalPages\": 2,\n    \"size\": 10,\n    \"number\": 0,\n    \"sort\": {\n        \"empty\": false,\n        \"sorted\": true,\n        \"unsorted\": false\n    },\n    \"first\": true,\n    \"numberOfElements\": 10,\n    \"empty\": false\n}"
+								}
+							]
+						},
+						{
+							"name": "get_books_with_filters",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url-book-service}}/book/api/v1/books?categories=Romance&author=Jasmine",
+									"host": [
+										"{{url-book-service}}"
+									],
+									"path": [
+										"book",
+										"api",
+										"v1",
+										"books"
+									],
+									"query": [
+										{
+											"key": "categories",
+											"value": "Romance"
+										},
+										{
+											"key": "author",
+											"value": "Jasmine"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "200_OK",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:8080/v1/books?categories=Romance&author=Jasmine",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"v1",
+												"books"
+											],
+											"query": [
+												{
+													"key": "categories",
+													"value": "Romance"
+												},
+												{
+													"key": "author",
+													"value": "Jasmine"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 11 Nov 2021 20:32:29 GMT"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=60"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"content\": [\n        {\n            \"id\": 7,\n            \"title\": \"The Proposal\",\n            \"isbn\": \"978-65-86110-82-12\",\n            \"author\": {\n                \"id\": 7,\n                \"name\": \"Jasmine Guillory\"\n            },\n            \"categories\": [\n                {\n                    \"id\": 6,\n                    \"name\": \"Romance\"\n                }\n            ]\n        }\n    ],\n    \"pageable\": {\n        \"sort\": {\n            \"empty\": false,\n            \"sorted\": true,\n            \"unsorted\": false\n        },\n        \"offset\": 0,\n        \"pageSize\": 10,\n        \"pageNumber\": 0,\n        \"paged\": true,\n        \"unpaged\": false\n    },\n    \"last\": true,\n    \"totalElements\": 1,\n    \"totalPages\": 1,\n    \"size\": 10,\n    \"number\": 0,\n    \"sort\": {\n        \"empty\": false,\n        \"sorted\": true,\n        \"unsorted\": false\n    },\n    \"first\": true,\n    \"numberOfElements\": 1,\n    \"empty\": false\n}"
+								}
+							]
+						},
+						{
+							"name": "insert_book",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"title\":\"Da Vinci Code\",\r\n    \"isbn\":\"978-14-09091-15-8\",\r\n    \"authorId\":13,\r\n    \"categories\": [14, 15]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url-book-service}}/book/api/v1/books",
+									"host": [
+										"{{url-book-service}}"
+									],
+									"path": [
+										"book",
+										"api",
+										"v1",
+										"books"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "201_Created",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"title\":\"Da Vinci Code\",\r\n    \"isbn\":\"978-14-09091-15-8\",\r\n    \"authorId\":13,\r\n    \"categories\": [14, 15]\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:8080/v1/books",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"v1",
+												"books"
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 11 Nov 2021 19:59:56 GMT"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=60"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"id\": 15,\n    \"title\": \"Da Vinci Code\",\n    \"isbn\": \"978-14-09091-15-8\",\n    \"author\": {\n        \"id\": 13,\n        \"name\": null\n    },\n    \"categories\": [\n        {\n            \"id\": 15,\n            \"name\": null\n        },\n        {\n            \"id\": 14,\n            \"name\": null\n        }\n    ]\n}"
+								},
+								{
+									"name": "400_Bad_Request_duplicated_Isbn",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"title\":\"Da Vinci Code\",\r\n    \"isbn\":\"978-14-09091-15-8\",\r\n    \"authorId\":13,\r\n    \"categories\": [14, 15]\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:8080/v1/books",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"v1",
+												"books"
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 11 Nov 2021 20:37:21 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "close"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"code\": 400,\n    \"status\": \"Bad Request\",\n    \"description\": \"There is another book using the same isbn '978-14-09091-15-8' informed \",\n    \"date\": \"2021-11-11T17:37:21.321112\"\n}"
+								}
+							]
+						},
+						{
+							"name": "update_book",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"title\":\"Da Vinci Code\",\r\n    \"isbn\":\"978-14-09091-15-8\",\r\n    \"authorId\":13,\r\n    \"categories\": [14,15,16,17]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url-book-service}}/book/api/v1/books/15",
+									"host": [
+										"{{url-book-service}}"
+									],
+									"path": [
+										"book",
+										"api",
+										"v1",
+										"books",
+										"15"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "404_Not_Found",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"title\":\"Da Vinci Code\",\r\n    \"isbn\":\"978-14-09091-15-8\",\r\n    \"authorId\":13,\r\n    \"categories\": [14,15,16,17]\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{url-book-service}}/book/api/v1/books/15",
+											"host": [
+												"{{url-book-service}}"
+											],
+											"path": [
+												"book",
+												"api",
+												"v1",
+												"books",
+												"15"
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-B3-TraceId",
+											"value": "547c269d-631b-4736-a4b3-6a3c7d57d940"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Date",
+											"value": "Mon, 15 Nov 2021 19:50:56 GMT"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=60"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"code\": 404,\n    \"status\": \"Not Found\",\n    \"description\": \"Book with Id 15 was not found\",\n    \"date\": \"2021-11-15T16:50:56.475187600\"\n}"
+								}
+							]
+						},
+						{
+							"name": "delete_book",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{url-book-service}}/book/api/v1/books/15",
+									"host": [
+										"{{url-book-service}}"
+									],
+									"path": [
+										"book",
+										"api",
+										"v1",
+										"books",
+										"15"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "204_No_Content",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{url-book-service}}/book/api/v1/books/15",
+											"host": [
+												"{{url-book-service}}"
+											],
+											"path": [
+												"book",
+												"api",
+												"v1",
+												"books",
+												"15"
+											]
+										}
+									},
+									"status": "No Content",
+									"code": 204,
+									"_postman_previewlanguage": "plain",
+									"header": [
+										{
+											"key": "X-B3-TraceId",
+											"value": "d3708d0d-4e77-42bd-8eee-93c26a2e5154"
+										},
+										{
+											"key": "Date",
+											"value": "Mon, 15 Nov 2021 19:50:34 GMT"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=60"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										}
+									],
+									"cookie": [],
+									"body": null
+								},
+								{
+									"name": "404_Not_Found",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{url-book-service}}/book/api/v1/books/16",
+											"host": [
+												"{{url-book-service}}"
+											],
+											"path": [
+												"book",
+												"api",
+												"v1",
+												"books",
+												"16"
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-B3-TraceId",
+											"value": "487aee1d-d14a-4e3b-b0de-faa9f8207d49"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Date",
+											"value": "Mon, 15 Nov 2021 19:50:03 GMT"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=60"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"code\": 404,\n    \"status\": \"Not Found\",\n    \"description\": \"Book with Id 16 was not found\",\n    \"date\": \"2021-11-15T16:50:03.463961100\"\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "order-service",
+					"item": [
+						{
+							"name": "user-outstanding-books",
+							"item": [
+								{
+									"name": "loan_a_book",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"bookId\":3,\r\n    \"userId\":1\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{url-order-service}}/order/api/v1/loan",
+											"host": [
+												"{{url-order-service}}"
+											],
+											"path": [
+												"order",
+												"api",
+												"v1",
+												"loan"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "return_a_book",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"bookId\":1, \r\n    \"userId\":1\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{url-order-service}}/order/api/v1/return",
+											"host": [
+												"{{url-order-service}}"
+											],
+											"path": [
+												"order",
+												"api",
+												"v1",
+												"return"
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "400_Not_Found",
+											"originalRequest": {
+												"method": "POST",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\r\n    \"userId\":14\r\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "http://localhost:9041/v1/books/15/return",
+													"protocol": "http",
+													"host": [
+														"localhost"
+													],
+													"port": "9041",
+													"path": [
+														"v1",
+														"books",
+														"15",
+														"return"
+													]
+												}
+											},
+											"status": "Not Found",
+											"code": 404,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												},
+												{
+													"key": "Transfer-Encoding",
+													"value": "chunked"
+												},
+												{
+													"key": "Date",
+													"value": "Fri, 12 Nov 2021 00:03:01 GMT"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=60"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												}
+											],
+											"cookie": [],
+											"body": "{\n    \"code\": 404,\n    \"status\": \"Not Found\",\n    \"description\": \"Borrow for this book not found\",\n    \"date\": \"2021-11-11T21:03:01.484914500\"\n}"
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "user-can-borrow-book",
+							"item": [
+								{
+									"name": "loan_a_book",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"bookId\":4,\r\n    \"userId\":6\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{url-order-service}}/order/api/v1/loan",
+											"host": [
+												"{{url-order-service}}"
+											],
+											"path": [
+												"order",
+												"api",
+												"v1",
+												"loan"
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "201_Created",
+											"originalRequest": {
+												"method": "POST",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\r\n    \"userId\":15\r\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "http://localhost:9041/v1/books/15/borrow",
+													"protocol": "http",
+													"host": [
+														"localhost"
+													],
+													"port": "9041",
+													"path": [
+														"v1",
+														"books",
+														"15",
+														"borrow"
+													]
+												}
+											},
+											"status": "Created",
+											"code": 201,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												},
+												{
+													"key": "Transfer-Encoding",
+													"value": "chunked"
+												},
+												{
+													"key": "Date",
+													"value": "Fri, 12 Nov 2021 00:00:09 GMT"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=60"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												}
+											],
+											"cookie": [],
+											"body": "{\n    \"id\": 1,\n    \"borrowedAt\": \"2021-11-11 21:00:09\",\n    \"returnIn\": \"2021-11-16 21:00:09\"\n}"
+										},
+										{
+											"name": "400_Bad_Request",
+											"originalRequest": {
+												"method": "POST",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\r\n    \"userId\":15\r\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "http://localhost:9041/v1/books/15/borrow",
+													"protocol": "http",
+													"host": [
+														"localhost"
+													],
+													"port": "9041",
+													"path": [
+														"v1",
+														"books",
+														"15",
+														"borrow"
+													]
+												}
+											},
+											"status": "Bad Request",
+											"code": 400,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												},
+												{
+													"key": "Transfer-Encoding",
+													"value": "chunked"
+												},
+												{
+													"key": "Date",
+													"value": "Fri, 12 Nov 2021 00:01:00 GMT"
+												},
+												{
+													"key": "Connection",
+													"value": "close"
+												}
+											],
+											"cookie": [],
+											"body": "{\n    \"code\": 400,\n    \"status\": \"Bad Request\",\n    \"description\": \"Book is not available to borrow\",\n    \"date\": \"2021-11-11T21:01:00.189602400\"\n}"
+										}
+									]
+								},
+								{
+									"name": "return_a_book",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"bookId\":6, \r\n    \"userId\":6\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{url-order-service}}/order/api/v1/return",
+											"host": [
+												"{{url-order-service}}"
+											],
+											"path": [
+												"order",
+												"api",
+												"v1",
+												"return"
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "400_Not_Found",
+											"originalRequest": {
+												"method": "POST",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\r\n    \"userId\":14\r\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "http://localhost:9041/v1/books/15/return",
+													"protocol": "http",
+													"host": [
+														"localhost"
+													],
+													"port": "9041",
+													"path": [
+														"v1",
+														"books",
+														"15",
+														"return"
+													]
+												}
+											},
+											"status": "Not Found",
+											"code": 404,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												},
+												{
+													"key": "Transfer-Encoding",
+													"value": "chunked"
+												},
+												{
+													"key": "Date",
+													"value": "Fri, 12 Nov 2021 00:03:01 GMT"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=60"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												}
+											],
+											"cookie": [],
+											"body": "{\n    \"code\": 404,\n    \"status\": \"Not Found\",\n    \"description\": \"Borrow for this book not found\",\n    \"date\": \"2021-11-11T21:03:01.484914500\"\n}"
+										}
+									]
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "param-service",
+					"item": [
+						{
+							"name": "get_param_Borrow_Limit",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url-param-service}}/param/api/v1/params/by-key/borrow-limit",
+									"host": [
+										"{{url-param-service}}"
+									],
+									"path": [
+										"param",
+										"api",
+										"v1",
+										"params",
+										"by-key",
+										"borrow-limit"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "200_OK",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{url-param-service}}/param/api/v1/params/by-key/borrow-limit",
+											"host": [
+												"{{url-param-service}}"
+											],
+											"path": [
+												"param",
+												"api",
+												"v1",
+												"params",
+												"by-key",
+												"borrow-limit"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Date",
+											"value": "Sat, 13 Nov 2021 23:36:49 GMT"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=60"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"key\": \"borrow-limit\",\n    \"value\": 3\n}"
+								}
+							]
+						},
+						{
+							"name": "get_param_Borrow_Days",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url-param-service}}/param/api/v1/params/by-key/borrow-days",
+									"host": [
+										"{{url-param-service}}"
+									],
+									"path": [
+										"param",
+										"api",
+										"v1",
+										"params",
+										"by-key",
+										"borrow-days"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "200_OK",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{url-param-service}}/param/api/v1/params/by-key/borrow-days",
+											"host": [
+												"{{url-param-service}}"
+											],
+											"path": [
+												"param",
+												"api",
+												"v1",
+												"params",
+												"by-key",
+												"borrow-days"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Date",
+											"value": "Sat, 13 Nov 2021 23:38:22 GMT"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=60"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"key\": \"borrow-days\",\n    \"value\": 5\n}"
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	]
+}

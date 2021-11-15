@@ -8,6 +8,7 @@ import com.orderservice.business.web.helper.BookOrderHelper;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -21,6 +22,7 @@ import javax.validation.Valid;
 @Slf4j
 @RestController
 @RequestMapping(value = "/api/v1")
+@Tag(name = "Order Api", description = "This service is responsible for managing orders. A member can borrow a book and return it.")
 public class BookOrderController {
 
     private final BookOrderService service;

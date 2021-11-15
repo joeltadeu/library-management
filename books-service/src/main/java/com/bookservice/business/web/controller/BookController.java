@@ -13,6 +13,7 @@ import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
@@ -31,6 +32,7 @@ import javax.validation.Valid;
 @Slf4j
 @RestController
 @RequestMapping(value = "/api/v1/books")
+@Tag(name = "Book Api", description = "This service is responsible for managing books. A user can create, update, get details, list and delete books.")
 public class BookController {
 
     private final BookService service;

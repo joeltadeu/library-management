@@ -52,4 +52,4 @@ service-base-url: /api/
 
 springdoc:
   swagger-ui:
-    disable-swagger-default-url:true
+    disable-swagger-default-url: true
