@@ -1,6 +1,8 @@
 # Library Management using Spring Cloud, Eureka, Zuul, Zipkin, Sleuth
 
 
+## Architecture:
+![Alt text](assets/library-management-architecture.svg?raw=true "Library Management Architecture")
 
 ## There are three microservices:
 
